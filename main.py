@@ -22,68 +22,58 @@ def division(a, b):
         return "Error: No se puede dividir entre cero"
     return a / b
 
-def potencia(base, exponente):
-    """Calcula la potencia de un número"""
-    return base ** exponente
-
-def raiz_cuadrada(numero):
-    """Calcula la raíz cuadrada de un número"""
-    if numero < 0:
-        return "Error: No se puede calcular raíz cuadrada de número negativo"
-    return numero ** 0.5
-
-def factorial(n):
-    """Calcula el factorial de un número"""
-    if n < 0:
-        return "Error: No se puede calcular factorial de número negativo"
-    if n == 0 or n == 1:
-        return 1
-    resultado = 1
-    for i in range(2, n + 1):
-        resultado *= i
-    return resultado
-
-def es_primo(numero):
-    """Verifica si un número es primo"""
-    if numero <= 1:
-        return False
-    if numero == 2:
-        return True
-    if numero % 2 == 0:
-        return False
-    for i in range(3, int(numero ** 0.5) + 1, 2):
-        if numero % i == 0:
-            return False
-    return True
+def obtener_numero(mensaje):
+    """Función para obtener un número válido del usuario"""
+    while True:
+        try:
+            return float(input(mensaje))
+        except ValueError:
+            print("Error: Por favor ingrese un número válido")
 
 def main():
-    """Función principal que ejecuta ejemplos de las operaciones matemáticas"""
-    print("=== PROYECTO DE EJERCICIOS MATEMÁTICOS ===")
+    """Función principal que permite al usuario realizar operaciones matemáticas"""
+    print("=== CALCULADORA MATEMÁTICA ===")
+    print("Operaciones disponibles:")
+    print("1. Suma")
+    print("2. Resta")
+    print("3. Multiplicación")
+    print("4. División")
+    print("5. Salir")
     print()
     
-    # Ejemplos de operaciones básicas
-    print("Operaciones Básicas:")
-    print(f"10 + 5 = {suma(10, 5)}")
-    print(f"10 - 5 = {resta(10, 5)}")
-    print(f"10 * 5 = {multiplicacion(10, 5)}")
-    print(f"10 / 5 = {division(10, 5)}")
-    print()
-    
-    # Ejemplos de operaciones avanzadas
-    print("Operaciones Avanzadas:")
-    print(f"2^3 = {potencia(2, 3)}")
-    print(f"Raiz cuadrada de 16 = {raiz_cuadrada(16)}")
-    print(f"5! = {factorial(5)}")
-    print()
-    
-    # Ejemplos de verificación de primos
-    print("Verificación de Números Primos:")
-    numeros_prueba = [2, 3, 4, 5, 7, 8, 11, 13, 15]
-    for num in numeros_prueba:
-        print(f"{num} {'es primo' if es_primo(num) else 'no es primo'}")
-    
-    print()
-    print("=== EJERCICIOS COMPLETADOS ===")
+    while True:
+        try:
+            opcion = int(input("Seleccione una operación (1-5): "))
+            
+            if opcion == 5:
+                print("¡Gracias por usar la calculadora!")
+                break
+                
+            if opcion not in [1, 2, 3, 4]:
+                print("Opción no válida. Intente nuevamente.")
+                continue
+                
+            num1 = obtener_numero("Ingrese el primer número: ")
+            num2 = obtener_numero("Ingrese el segundo número: ")
+            
+            if opcion == 1:
+                resultado = suma(num1, num2)
+                print(f"Resultado: {num1} + {num2} = {resultado}")
+            elif opcion == 2:
+                resultado = resta(num1, num2)
+                print(f"Resultado: {num1} - {num2} = {resultado}")
+            elif opcion == 3:
+                resultado = multiplicacion(num1, num2)
+                print(f"Resultado: {num1} * {num2} = {resultado}")
+            elif opcion == 4:
+                resultado = division(num1, num2)
+                print(f"Resultado: {num1} / {num2} = {resultado}")
+                
+            print()
+            
+        except ValueError:
+            print("Error: Por favor ingrese una opción válida (1-5)")
+            print()
 
 if __name__ == "__main__":
     main()
