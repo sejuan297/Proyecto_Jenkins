@@ -1,0 +1,8 @@
+# Proyecto de Ejercicios Matemáticos - Dependencias
+
+# No se requieren dependencias externas para este proyecto
+# Solo se utiliza la librería estándar de Python (unittest)
+
+# Si se desea agregar más funcionalidades en el futuro:
+# numpy>=1.21.0
+# pytest>=6.0.0
