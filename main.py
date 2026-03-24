@@ -5,25 +5,21 @@ Este proyecto contiene funciones para realizar operaciones matemáticas básicas
 """
 
 def suma(a, b):
-    """Realiza la suma de dos números"""
     return a + b
 
 def resta(a, b):
-    """Realiza la resta de dos números"""
     return a - b
 
 def multiplicacion(a, b):
-    """Realiza la multiplicación de dos números"""
     return a * b
 
 def division(a, b):
-    """Realiza la división de dos números"""
     if b == 0:
         return "Error: No se puede dividir entre cero"
     return a / b
 
 def obtener_numero(mensaje):
-    """Función para obtener un número válido del usuario"""
+    #Función para obtener un número válido del usuario
     while True:
         try:
             return float(input(mensaje))
@@ -31,7 +27,7 @@ def obtener_numero(mensaje):
             print("Error: Por favor ingrese un número válido")
 
 def main():
-    """Función principal que permite al usuario realizar operaciones matemáticas"""
+    #Función principal que permite al usuario realizar operaciones matemáticas
     print("=== CALCULADORA MATEMÁTICA ===")
     print("Operaciones disponibles:")
     print("1. Suma")
@@ -58,16 +54,28 @@ def main():
             
             if opcion == 1:
                 resultado = suma(num1, num2)
-                print(f"Resultado: {num1} + {num2} = {resultado}")
+                if resultado.is_integer():
+                    print(f"Resultado: {int(num1)} + {int(num2)} = {int(resultado)}")
+                else:
+                    print(f"Resultado: {num1} + {num2} = {resultado}")
             elif opcion == 2:
                 resultado = resta(num1, num2)
-                print(f"Resultado: {num1} - {num2} = {resultado}")
+                if resultado.is_integer():
+                    print(f"Resultado: {int(num1)} - {int(num2)} = {int(resultado)}")
+                else:
+                    print(f"Resultado: {num1} - {num2} = {resultado}")
             elif opcion == 3:
                 resultado = multiplicacion(num1, num2)
-                print(f"Resultado: {num1} * {num2} = {resultado}")
+                if resultado.is_integer():
+                    print(f"Resultado: {int(num1)} * {int(num2)} = {int(resultado)}")
+                else:
+                    print(f"Resultado: {num1} * {num2} = {resultado}")
             elif opcion == 4:
                 resultado = division(num1, num2)
-                print(f"Resultado: {num1} / {num2} = {resultado}")
+                if resultado.is_integer():
+                    print(f"Resultado: {int(num1)} / {int(num2)} = {int(resultado)}")
+                else:
+                    print(f"Resultado: {num1} / {num2} = {resultado}")
                 
             print()
             
