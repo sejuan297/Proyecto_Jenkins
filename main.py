@@ -33,18 +33,20 @@ def main():
     print("Operaciones disponibles:")
     print("1. Suma")
     print("2. Resta")
-    print("3. Salir")
+    print("3. Multiplicación")
+    print("4. División")
+    print("5. Salir")
     print()
     
     while True:
         try:
-            opcion = int(input("Seleccione una operación (1-3): "))
+            opcion = int(input("Seleccione una operación (1-5): "))
             
-            if opcion == 3:
+            if opcion == 5:
                 print("¡Gracias por usar la calculadora!")
                 break
                 
-            if opcion not in [1, 2]:
+            if opcion not in [1, 2, 3, 4]:
                 print("Opción no válida. Intente nuevamente.")
                 continue
                 
@@ -63,11 +65,23 @@ def main():
                     print(f"Resultado: {int(num1)} - {int(num2)} = {int(resultado)}")
                 else:
                     print(f"Resultado: {num1} - {num2} = {resultado}")
+            elif opcion == 3:
+                resultado = multiplicacion(num1, num2)
+                if resultado.is_integer():
+                    print(f"Resultado: {int(num1)} * {int(num2)} = {int(resultado)}")
+                else:
+                    print(f"Resultado: {num1} * {num2} = {resultado}")
+            elif opcion == 4:
+                resultado = division(num1, num2)
+                if resultado.is_integer():
+                    print(f"Resultado: {int(num1)} / {int(num2)} = {int(resultado)}")
+                else:
+                    print(f"Resultado: {num1} / {num2} = {resultado}")
                 
             print()
             
         except ValueError:
-            print("Error: Por favor ingrese una opción válida (1-3)")
+            print("Error: Por favor ingrese una opción válida (1-5)")
             print()
 
 if __name__ == "__main__":
