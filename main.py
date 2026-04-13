@@ -2,6 +2,7 @@
 """
 Proyecto de Ejercicios Matemáticos
 Este proyecto contiene funciones para realizar operaciones matemáticas básicas
+NUEVA ACTUALIZACIÓN
 """
 
 def suma(a, b):
